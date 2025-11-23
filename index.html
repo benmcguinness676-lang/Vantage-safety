@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vantage Safety Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #15191e;
+      --text-primary: #ffffff;
+      --text-secondary: #aaaaaa;
+      --accent: #00ffa2;
+      --card-bg: #1f242b;
+      --nav-bg: #1b2026;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* HEADER WITH CENTERED LOGO */
+    header {
+      background: var(--nav-bg);
+      padding: 1.5rem 1rem 1.8rem;
+      border-bottom: 1px solid #222;
+      text-align: center;
+    }
+
+    header .logo {
+      max-width: 260px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto 0.75rem;
+    }
+
+    header p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    nav {
+      background: var(--nav-bg);
+      padding: 0.6rem 2rem;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-tabs {
+      list-style: none;
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      color: var(--text-secondary);
+      background: transparent;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    .nav-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .nav-link.active {
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .tab {
+      display: none;
+    }
+    .tab.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #222;
+    }
+
+    .badge {
+      background: var(--accent);
+      color: #000;
+      padding: 0.25rem 0.6rem;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-block;
+      margin-bottom: 0.6rem;
+      font-weight: bold;
+    }
+
+    h2, h3 {
+      color: var(--accent);
+    }
+
+    p, li {
+      color: var(--text-secondary);
+    }
+
+    ul {
+      margin-left: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .grid-2 { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1rem;
+      transition: 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(85%);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border-radius: 0.6rem;
+      border: 1px solid #333;
+      background: #0f1216;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: var(--text-secondary);
+      margin-top: 2rem;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <!-- LOGO (centered) -->
+  <img
+    src="logo.png"
+    alt="Vantage Safety Services logo"
+    class="logo"
+  />
+  <p>Professional Health &amp; Safety Consultancy &mdash; Ben McGuinness</p>
+</header>
+
+<nav>
+  <ul class="nav-tabs">
+    <li><a class="nav-link active" data-tab="home" href="#">Home</a></li>
+    <li><a class="nav-link" data-tab="services" href="#">Services</a></li>
+    <li><a class="nav-link" data-tab="pricing" href="#">Pricing</a></li>
+    <li><a class="nav-link" data-tab="about" href="#">About</a></li>
+    <li><a class="nav-link" data-tab="contact" href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- HOME -->
+  <section id="home" class="tab active">
+    <div class="card">
+      <span class="badge">Welcome</span>
+      <h2>Practical safety solutions for real worksites.</h2>
+      <p>
+        Vantage Safety Services delivers hands-on, realistic health &amp; safety guidance designed for high-risk
+        industries including construction, groundworks, and specialist trades.
+      </p>
+      <p>
+        From site inspections and RAMS to incident investigation and training, I work with you to make safety
+        standards achievable, not just paperwork.
+      </p>
+      <a class="btn-primary" data-tab-trigger="contact" href="#">Book a consultation</a>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Site Inspections</h3>
+        <p>Structured inspections with photos, clear actions and follow-up support.</p>
+      </div>
+      <div class="card">
+        <h3>RAMS &amp; Documentation</h3>
+        <p>Risk Assessments, Method Statements and policies tailored to your work.</p>
+      </div>
+      <div class="card">
+        <h3>Training &amp; Coaching</h3>
+        <p>Toolbox talks, inductions and hands-on coaching for supervisors and operatives.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="tab">
+    <div class="card">
+      <span class="badge">Services</span>
+      <h2>Health &amp; Safety Support</h2>
+
+      <div class="grid grid-2" style="margin-top: 1rem;">
+        <div>
+          <h3>Site Inspections &amp; Audits</h3>
+          <p>Planned and reactive inspections across construction and groundworks projects.</p>
+          <ul>
+            <li>Full photographic reports</li>
+            <li>Priority-based action plans</li>
+            <li>Client / principal contractor audit support</li>
+          </ul>
+        </div>
+        <div>
+          <h3>RAMS &amp; Documentation</h3>
+          <p>Clear, practical documentation that reflects how you actually work.</p>
+          <ul>
+            <li>Risk Assessments &amp; Method Statements</li>
+            <li>Company H&amp;S policies &amp; arrangements</li>
+            <li>Safe systems of work / SOPs</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Incident Investigation</h3>
+          <p>Support following accidents, near misses or enforcement visits.</p>
+          <ul>
+            <li>Root-cause analysis</li>
+            <li>Formal investigation reports</li>
+            <li>Corrective &amp; preventative actions</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Training &amp; Culture</h3>
+          <p>Building competence and ownership at all levels.</p>
+          <ul>
+            <li>Inductions &amp; toolbox talks</li>
+            <li>Supervisor / manager coaching</li>
+            <li>Behavioural safety input</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="tab">
+    <div class="card">
+      <span class="badge">Pricing</span>
+      <h2>Transparent and flexible</h2>
+      <p>Guide rates below &mdash; all packages can be tailored to your projects and locations.</p>
+
+      <div class="grid grid-3" style="margin-top: 1rem;">
+        <div>
+          <h3>Single Site Visit</h3>
+          <p><strong>£XXX + VAT</strong></p>
+          <p>Ideal for one-off inspections or client audits.</p>
+        </div>
+        <div>
+          <h3>Monthly Support</h3>
+          <p><strong>£XXX / month</strong></p>
+          <p>Ongoing competent H&amp;S support for your business.</p>
+        </div>
+        <div>
+          <h3>Project Support</h3>
+          <p><strong>POA</strong></p>
+          <p>For larger or long-term projects needing regular input.</p>
+        </div>
+      </div>
+
+      <a class="btn-primary" data-tab-trigger="contact" href="#">Request a quote</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="tab">
+    <div class="card">
+      <span class="badge">About</span>
+      <h2>About Ben McGuinness</h2>
+      <p>
+        I’m an experienced Health &amp; Safety professional specialising in construction, groundworks and other
+        high-risk environments. Vantage Safety Services was created to give businesses practical, straight-talking
+        support that works in the real world.
+      </p>
+      <p>
+        I partner with principal contractors, subcontractors and SMEs, acting as a competent H&amp;S advisor and
+        an extra pair of eyes on site.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="tab">
+    <div class="card">
+      <span class="badge">Contact</span>
+      <h2>Get in touch</h2>
+      <p>Tell me a bit about your work and what you need help with, and I’ll get back to you.</p>
+
+      <form class="grid contact-form" style="margin-top:1rem;">
+        <input type="text" placeholder="Your Name" />
+        <input type="text" placeholder="Company" />
+        <input type="email" placeholder="Email address" />
+        <textarea placeholder="Briefly describe your work and what support you’re looking for..."></textarea>
+        <button class="btn-primary" type="submit">Send Enquiry (demo)</button>
+      </form>
+      <p style="margin-top:0.5rem; font-size:0.85rem; color:var(--text-secondary);">
+        This form is a demo only &mdash; connect it to your email or a form service when you launch.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © <span id="year"></span> Vantage Safety Services
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const navLinks = document.querySelectorAll(".nav-link");
+  const tabs = document.querySelectorAll(".tab");
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const id = link.dataset.tab;
+
+      navLinks.forEach(l => l.classList.remove("active"));
+      link.classList.add("active");
+
+      tabs.forEach(tab => {
+        tab.classList.toggle("active", tab.id === id);
+      });
+
+      document.querySelector("main").scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  document.querySelectorAll("[data-tab-trigger]").forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.preventDefault();
+      const id = btn.dataset.tabTrigger;
+      document.querySelector(`.nav-link[data-tab="${id}"]`).click();
+    });
+  });
+</script>
+
+</body>
+</html>

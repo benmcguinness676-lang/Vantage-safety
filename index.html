@@ -27,21 +27,21 @@
       line-height: 1.6;
     }
 
-    /* HEADER WITH CENTERED  */
     header {
-      background: var(--nav-bg);
-      padding: 1.5rem 1rem 1.8rem;
-      border-bottom: 1px solid #222;
-      text-align: center;
-    }
+  background: var(--nav-bg);
+  padding: 1.5rem 1rem 1.8rem;
+  border-bottom: 1px solid #222;
+  text-align: left;            /* changed from center to left */
+}
 
-    header .logo {
-      max-width: 260px;
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto 0.75rem;
-    }
+/* Logo aligned left */
+header .logo {
+  max-width: 260px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 0 0.75rem 0;       /* removed auto centering */
+}
 
     header p {
       color: var(--text-secondary);
@@ -144,6 +144,44 @@
       display: grid;
       gap: 1.25rem;
     }
+
+/* Image gallery on home page */
+.gallery-wrapper {
+  margin-top: 1.5rem;
+}
+
+.gallery-wrapper h3 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.gallery {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;          /* enables horizontal scroll */
+  padding: 0.5rem 0;
+  scrollbar-width: thin;     /* Firefox */
+}
+
+/* Webkit/Chrome scrollbars (optional) */
+.gallery::-webkit-scrollbar {
+  height: 6px;
+}
+.gallery::-webkit-scrollbar-track {
+  background: #ccc;
+}
+.gallery::-webkit-scrollbar-thumb {
+  background: var(--accent);
+}
+
+.gallery img {
+  height: 140px;             /* set gallery image height */
+  border-radius: 0.5rem;
+  flex-shrink: 0;            /* stop images from shrinking */
+  object-fit: cover;
+  border: 2px solid #222;
+  background: #fff;          /* so placeholders look nice */
+}
 
     @media (min-width: 768px) {
       .grid-2 { grid-template-columns: repeat(2, 1fr); }
@@ -262,7 +300,7 @@
     </div>
     <!-- 🔺 End gallery -->
 
-    
+
   </section>
 
   <!-- SERVICES -->
